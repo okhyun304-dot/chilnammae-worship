@@ -13,12 +13,14 @@ body{background:#f1f0ec;color:#222;font-family:"Noto Sans KR",sans-serif;-webkit
 img,video{display:block;width:100%}
 video{background:#000}
 .wrap{max-width:520px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 18px rgba(0,0,0,.06)}
-.series{position:sticky;top:0;z-index:10;background:#fff;display:flex;border-bottom:1px solid #222}
-.series a{flex:1;padding:12px 4px 11px;text-align:center;font-size:13px;color:#999;text-decoration:none;border-right:1px solid #eee;line-height:1.35}
+.series{position:sticky;top:0;z-index:10;background:#fff;display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #222}.series::-webkit-scrollbar{display:none}
+.series a{flex:1 0 76px;cursor:pointer;padding:12px 4px 11px;text-align:center;font-size:13px;color:#999;text-decoration:none;border-right:1px solid #eee;line-height:1.35}
 .series a:last-child{border-right:0}
 .series a b{display:block;font-size:11px;font-weight:500;letter-spacing:.08em}
 .series a.on{color:#a5532c;font-weight:700;box-shadow:inset 0 -3px 0 #a5532c}
-.series a.nx{color:#555}
+.series a.nx{color:#555;cursor:default}
+.meet[hidden]{display:none}
+.pv{padding:0 0 6px}
 .hd{padding:24px 20px 16px}
 .hd .k{font-size:12px;font-weight:700;letter-spacing:.25em;color:#a5532c}
 .hd h1{font:700 29px/1.25 "Gowun Batang",serif;margin:8px 0 4px}
@@ -59,8 +61,7 @@ video{background:#000}
 .more a:last-child{border-right:0}
 .more a b{display:block;font-size:15px;color:#a5532c}
 .more a span{font-size:12px;color:#777}
-.past{padding:26px 0 8px;border-top:8px solid #f1f0ec}
-.past .hd{padding-top:0}
+.past{padding:0 0 8px}
 .past figure{margin:0 0 4px}
 .past figcaption{padding:6px 20px 14px;font-size:13px;color:#888}
 .past .g2{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:0 14px}
@@ -70,10 +71,13 @@ video{background:#000}
 </style></head><body>
 <div class="wrap">
 
-<nav class="series">
- <a href="#past"><b>그 전</b>지난 모임</a>
- <a href="#m-2026-10" class="on"><b>2026 가을</b>10월 31일</a>
- <a class="nx"><b>2026 겨울</b>12월 19일 · 다음</a>
+<nav class="series" id="series">
+ <a href="#m-sangil" data-m="m-sangil"><b>봄</b>산길</a>
+ <a href="#m-cafe" data-m="m-cafe"><b>6월</b>카페</a>
+ <a href="#m-hwamok" data-m="m-hwamok"><b>8월</b>화목원</a>
+ <a href="#m-cheorwon" data-m="m-cheorwon"><b>10월 3일</b>철원</a>
+ <a href="#m-2026-10" data-m="m-2026-10" class="on"><b>10월 31일</b>춘천</a>
+ <a class="nx"><b>다음</b>12월 19일</a>
 </nav>
 
 <article class="meet" id="m-2026-10">
@@ -116,23 +120,40 @@ video{background:#000}
  <div class="cap">사진을 누르면 크게 보입니다</div>
 
  <div class="next"><span>다음 가족 예배</span><b>12월 19일</b></div>
-</article>
-
-
-<section class="past" id="past">
- <div class="hd"><div class="k">앞서 모였던 날들</div><h1>지난 모임에서 남은 사진들</h1><p>예배를 마치고 점심을 먹고, 카페에 들르거나 꽃구경을 다녀온 날들</p></div>
- <div class="one"><img src="img/past11.jpg" alt=""></div><figcaption>강원도립화목원</figcaption>
- <div class="g2"><img src="img/past09.jpg" alt=""><img src="img/past10.jpg" alt=""><img src="img/past12.jpg" alt=""><img src="img/past08.jpg" alt=""></div><figcaption>튤립 앞에서 · 온실 앞 꽃밭 · 나란히 · 꽃나무 아래</figcaption>
- <div class="g2"><img src="img/past14.jpg" alt=""><img src="img/past15.jpg" alt=""></div><figcaption>예배 뒤의 카페 · 창가 자리</figcaption>
- <div class="one"><img src="img/past13.jpg" alt=""></div><figcaption>나무 그늘 아래</figcaption>
- <div class="one"><img src="img/past17.jpg" alt=""></div><figcaption>함께한 밥상</figcaption>
- <div class="g2"><img src="img/past16.jpg" alt=""><img src="img/past18.jpg" alt=""></div><figcaption>꽃구경 가는 날 · 꽃길을 걷는 네 사람</figcaption>
-</section>
  <div class="more">
   <a href="book/"><b>전체 기록 보기 →</b><span>글 · 사진 · 영상, 처음부터 끝까지</span></a>
   <a href="book/flip.html"><b>책처럼 넘겨 보기 →</b><span>한 장씩 넘기는 앨범</span></a>
  </div>
-<div class="foot">석 달에 한 번, 함께 예배를 드리고 함께 밥을 먹는 일곱 남매의 기록입니다. 모임이 있을 때마다 위 줄에 한 칸씩 쌓입니다.</div>
+</article>
+
+
+<article class="meet past" id="m-sangil" hidden>
+ <div class="hd"><div class="k">지난 모임 · 봄</div><h1>연둣빛 산길</h1><p>산길에서 다 함께. 손가락을 모아 별을 만들었다.</p></div>
+ <div class="pv"><div class="cover" data-src="clips/past_star.mp4"><img src="img/past_star.jpg" alt=""></div></div><figcaption>▶ 손가락 별 (10초)</figcaption>
+ <div class="g2"><img src="img/past20.jpg" alt=""><img src="img/past21.jpg" alt=""></div><figcaption>산길에서 다 함께</figcaption>
+ <div class="one"><img src="img/past19.jpg" alt=""></div><figcaption>모은 손가락</figcaption>
+ <div class="next"><span>다음 가족 예배</span><b>12월 19일</b></div>
+</article>
+<article class="meet past" id="m-cafe" hidden>
+ <div class="hd"><div class="k">지난 모임 · 6월</div><h1>예배 뒤, 카페</h1><p>예배를 마치고 막국수를 먹은 뒤 카페에 들렀다.</p></div>
+ <div class="g2"><img src="img/past14.jpg" alt=""><img src="img/past15.jpg" alt=""></div><figcaption>예배 뒤의 카페 · 창가 자리</figcaption>
+ <div class="next"><span>다음 가족 예배</span><b>12월 19일</b></div>
+</article>
+<article class="meet past" id="m-hwamok" hidden>
+ <div class="hd"><div class="k">지난 모임 · 8월</div><h1>화목원 나들이</h1><p>강원도립화목원을 걷고, 큰 고깃집에서 다 같이 밥을 먹었다.</p></div>
+ <div class="one"><img src="img/past11.jpg" alt=""></div><figcaption>강원도립화목원</figcaption>
+ <div class="g2"><img src="img/past09.jpg" alt=""><img src="img/past10.jpg" alt=""><img src="img/past12.jpg" alt=""><img src="img/past08.jpg" alt=""></div><figcaption>튤립 앞에서 · 온실 앞 꽃밭 · 나란히 · 꽃나무 아래</figcaption>
+ <div class="one"><img src="img/past13.jpg" alt=""></div><figcaption>나무 그늘 아래</figcaption>
+ <div class="g2"><img src="img/past16.jpg" alt=""><img src="img/past17.jpg" alt=""></div><figcaption>밥 먹으러 가는 길 · 함께한 밥상</figcaption>
+ <div class="next"><span>다음 가족 예배</span><b>12월 19일</b></div>
+</article>
+<article class="meet past" id="m-cheorwon" hidden>
+ <div class="hd"><div class="k">2026년 10월 3일</div><h1>철원 꽃구경</h1><p>네 분이 따로 다녀온 코스모스 꽃길.</p></div>
+ <div class="one"><img src="img/past18.jpg" alt=""></div><figcaption>꽃길을 걷는 네 사람</figcaption>
+ <div class="next"><span>다음 가족 예배</span><b>12월 19일</b></div>
+</article>
+
+<div class="foot">석 달에 한 번, 함께 예배를 드리고 함께 밥을 먹는 일곱 남매의 기록입니다. 모임이 있을 때마다 위 줄에 한 칸씩 쌓입니다. 위 칸을 누르면 그 모임이 열립니다.</div>
 </div>
 <div class="zoom" id="zoom"><img alt=""></div>
 
@@ -160,6 +181,18 @@ document.querySelectorAll('.it').forEach(function (it) {
     setTimeout(function () { box.scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 80);
   };
 });
+
+// 위 줄: 누른 모임만 보이고, 누른 칸에 색이 들어간다 (주소 #m-... 로도 열림)
+var tabs = document.querySelectorAll('#series a[data-m]');
+function openMeet(id, scroll) {
+  if (!document.getElementById(id)) id = 'm-2026-10';
+  document.querySelectorAll('.meet').forEach(function (m) { m.hidden = m.id !== id; });
+  tabs.forEach(function (t) { t.classList.toggle('on', t.getAttribute('data-m') === id); if (t.getAttribute('data-m') === id) t.scrollIntoView({ inline: 'center', block: 'nearest' }); });
+  document.querySelectorAll('video').forEach(function (v) { v.pause(); });
+  if (scroll) window.scrollTo(0, 0);
+}
+tabs.forEach(function (t) { t.onclick = function (e) { e.preventDefault(); var id = t.getAttribute('data-m'); history.replaceState(null, '', '#' + id); openMeet(id, true); }; });
+openMeet((location.hash || '#m-2026-10').slice(1), false);
 // 사진 크게 보기
 var z = document.getElementById('zoom');
 document.querySelectorAll('.photos img, .past img').forEach(function (im) { im.onclick = function () { z.querySelector('img').src = im.src; z.classList.add('on'); }; });
