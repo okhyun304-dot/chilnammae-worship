@@ -54,6 +54,19 @@ video{background:#000}
 .zoom{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center}
 .zoom.on{display:flex}
 .zoom img{max-width:100%;max-height:100%;width:auto;object-fit:contain}
+.more{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #222;border-bottom:1px solid #222;margin:0}
+.more a{display:block;padding:14px 16px 13px;color:#222;text-decoration:none;border-right:1px solid #ddd}
+.more a:last-child{border-right:0}
+.more a b{display:block;font-size:15px;color:#a5532c}
+.more a span{font-size:12px;color:#777}
+.past{padding:26px 0 8px;border-top:8px solid #f1f0ec}
+.past .hd{padding-top:0}
+.past figure{margin:0 0 4px}
+.past figcaption{padding:6px 20px 14px;font-size:13px;color:#888}
+.past .g2{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:0 14px}
+.past .g2 img{aspect-ratio:1/1;object-fit:cover;cursor:zoom-in}
+.past .one{padding:0 14px}
+.past .one img{cursor:zoom-in}
 </style></head><body>
 <div class="wrap">
 
@@ -69,6 +82,11 @@ video{background:#000}
   <p>춘천, 소양강 · 누르면 바로 영상이 나옵니다</p>
  </div>
 
+
+ <div class="more">
+  <a href="book/"><b>전체 기록 보기 →</b><span>글 · 사진 · 영상, 처음부터 끝까지</span></a>
+  <a href="book/flip.html"><b>책처럼 넘겨 보기 →</b><span>한 장씩 넘기는 앨범</span></a>
+ </div>
  <div class="main"><div class="cover" data-src="clips/0_hl.mp4"><img src="img/p01.jpg" alt="소양강 강가에서 다 함께"></div></div>
  <div class="say"><b>그날 하루 전체</b> · 4분</div>
 
@@ -99,6 +117,20 @@ video{background:#000}
  <div class="next"><span>다음 가족 예배</span><b>12월 19일</b></div>
 </article>
 
+
+<section class="past" id="past">
+ <div class="hd"><div class="k">앞서 모였던 날들</div><h1>지난 모임에서 남은 사진들</h1><p>예배를 마치고 점심을 먹고, 카페에 들르거나 꽃구경을 다녀온 날들</p></div>
+ <div class="one"><img src="img/past11.jpg" alt=""></div><figcaption>강원도립화목원</figcaption>
+ <div class="g2"><img src="img/past09.jpg" alt=""><img src="img/past10.jpg" alt=""><img src="img/past12.jpg" alt=""><img src="img/past08.jpg" alt=""></div><figcaption>튤립 앞에서 · 온실 앞 꽃밭 · 나란히 · 꽃나무 아래</figcaption>
+ <div class="g2"><img src="img/past14.jpg" alt=""><img src="img/past15.jpg" alt=""></div><figcaption>예배 뒤의 카페 · 창가 자리</figcaption>
+ <div class="one"><img src="img/past13.jpg" alt=""></div><figcaption>나무 그늘 아래</figcaption>
+ <div class="one"><img src="img/past17.jpg" alt=""></div><figcaption>함께한 밥상</figcaption>
+ <div class="g2"><img src="img/past16.jpg" alt=""><img src="img/past18.jpg" alt=""></div><figcaption>꽃구경 가는 날 · 꽃길을 걷는 네 사람</figcaption>
+</section>
+ <div class="more">
+  <a href="book/"><b>전체 기록 보기 →</b><span>글 · 사진 · 영상, 처음부터 끝까지</span></a>
+  <a href="book/flip.html"><b>책처럼 넘겨 보기 →</b><span>한 장씩 넘기는 앨범</span></a>
+ </div>
 <div class="foot">석 달에 한 번, 함께 예배를 드리고 함께 밥을 먹는 일곱 남매의 기록입니다. 모임이 있을 때마다 위 줄에 한 칸씩 쌓입니다.</div>
 </div>
 <div class="zoom" id="zoom"><img alt=""></div>
@@ -129,7 +161,7 @@ document.querySelectorAll('.it').forEach(function (it) {
 });
 // 사진 크게 보기
 var z = document.getElementById('zoom');
-document.querySelectorAll('.photos img').forEach(function (im) { im.onclick = function () { z.querySelector('img').src = im.src; z.classList.add('on'); }; });
+document.querySelectorAll('.photos img, .past img').forEach(function (im) { im.onclick = function () { z.querySelector('img').src = im.src; z.classList.add('on'); }; });
 z.onclick = function () { z.classList.remove('on'); };
 </script>
 </body></html>
