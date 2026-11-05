@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>일곱 남매의 예배</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 칠남매 가족 예배 기록 — F안(계절 카드 + 영상 먼저). 새 모임은 <article class="meet"> 를 맨 위에 하나씩 추가하고 위 줄(.series)에 칸을 더한다. */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#f1f0ec;color:#222;font-family:"Noto Sans KR",sans-serif;-webkit-text-size-adjust:100%}
+img,video{display:block;width:100%}
+video{background:#000}
+.wrap{max-width:520px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 18px rgba(0,0,0,.06)}
+.series{position:sticky;top:0;z-index:10;background:#fff;display:flex;border-bottom:1px solid #222}
+.series a{flex:1;padding:12px 4px 11px;text-align:center;font-size:13px;color:#999;text-decoration:none;border-right:1px solid #eee;line-height:1.35}
+.series a:last-child{border-right:0}
+.series a b{display:block;font-size:11px;font-weight:500;letter-spacing:.08em}
+.series a.on{color:#a5532c;font-weight:700;box-shadow:inset 0 -3px 0 #a5532c}
+.series a.nx{color:#555}
+.hd{padding:24px 20px 16px}
+.hd .k{font-size:12px;font-weight:700;letter-spacing:.25em;color:#a5532c}
+.hd h1{font:700 29px/1.25 "Gowun Batang",serif;margin:8px 0 4px}
+.hd p{margin:0;font-size:14px;color:#777}
+.main{position:relative}
+.say{padding:12px 20px 2px;font-size:16px;font-weight:500}
+.say b{color:#a5532c}
+.list{padding:6px 14px 0}
+.it{border-top:1px solid #eee}
+.row{display:grid;grid-template-columns:44% 1fr;gap:12px;align-items:center;padding:11px 0;cursor:pointer}
+.th{position:relative;aspect-ratio:16/10;overflow:hidden;background:#ddd}
+.th img{height:100%;object-fit:cover}
+.th::after,.cover::after{content:"";position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:rgba(0,0,0,.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%23fff'/%3E%3C/svg%3E") center/22px no-repeat}
+.cover{position:relative;cursor:pointer}
+.cover img{aspect-ratio:16/10;object-fit:cover}
+.cover::after{width:86px;height:86px;margin:-43px 0 0 -43px;background-size:46px}
+.n{font-size:13px;font-weight:700;color:#a5532c}
+.row h3{margin:3px 0 3px;font-size:18px}
+.row p{margin:0;color:#777;font-size:13px;line-height:1.45}
+.row .len{display:inline-block;margin-top:4px;font-size:12px;color:#aaa}
+.it .vid{padding:0 0 14px}
+.it.open .row .th::after{display:none}
+.txt{padding:20px 20px 6px;font:400 16.5px/1.9 "Gowun Batang",serif}
+.txt p{margin:0 0 14px}
+.q{margin:6px 20px 16px;padding:2px 0 2px 14px;border-left:3px solid #a5532c;font:400 16px/1.7 "Gowun Batang",serif;color:#444}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:6px 14px 4px}
+.photos img{aspect-ratio:1/1;object-fit:cover;cursor:zoom-in}
+.photos img.w{grid-column:1/-1;aspect-ratio:16/10}
+.cap{padding:4px 20px 10px;font-size:13px;color:#888}
+.next{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed #a5532c;margin:16px 0 0;padding:16px 20px;font-size:15px;font-weight:500;color:#a5532c}
+.next b{font-size:18px}
+.foot{padding:22px 20px 40px;background:#faf9f6;border-top:1px solid #eee;font-size:13px;color:#999;line-height:1.7}
+.zoom{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center}
+.zoom.on{display:flex}
+.zoom img{max-width:100%;max-height:100%;width:auto;object-fit:contain}
+</style></head><body>
+<div class="wrap">
+
+<nav class="series">
+ <a href="#m-2026-10" class="on"><b>2026 가을</b>10월 31일</a>
+ <a class="nx"><b>2026 겨울</b>12월 19일 · 다음</a>
+</nav>
+
+<article class="meet" id="m-2026-10">
+ <div class="hd">
+  <div class="k">칠남매 가족 예배</div>
+  <h1>2026 가을 · 10월 31일</h1>
+  <p>춘천, 소양강 · 누르면 바로 영상이 나옵니다</p>
+ </div>
+
+ <div class="main"><div class="cover" data-src="clips/0_hl.mp4"><img src="img/p01.jpg" alt="소양강 강가에서 다 함께"></div></div>
+ <div class="say"><b>그날 하루 전체</b> · 4분</div>
+
+ <div class="list">
+  <div class="it" data-src="clips/1_gather.mp4"><div class="row"><div class="th"><img src="img/1_gather.jpg" alt=""></div><div><div class="n">1</div><h3>모이는 날</h3><p>"애기 빼고 15명."</p><span class="len">2분</span></div></div></div>
+  <div class="it" data-src="clips/2_hymn.mp4"><div class="row"><div class="th"><img src="img/2_hymn.jpg" alt=""></div><div><div class="n">2</div><h3>찬송 180장</h3><p>"자 우리는 다같이 180장 찬송 한곡 부르시고."</p><span class="len">2분</span></div></div></div>
+  <div class="it" data-src="clips/3_sax.mp4"><div class="row"><div class="th"><img src="img/3_sax.jpg" alt=""></div><div><div class="n">3</div><h3>색소폰 특송</h3><p>나 같은 죄인 살리신</p><span class="len">43초</span></div></div></div>
+  <div class="it" data-src="clips/4_word.mp4"><div class="row"><div class="th"><img src="img/4_word.jpg" alt=""></div><div><div class="n">4</div><h3>말씀</h3><p>"여러분이 그렇게 좋아하는 예수님과 열두 제자들 다 유대인입니다."</p><span class="len">2분</span></div></div></div>
+  <div class="it" data-src="clips/5_news.mp4"><div class="row"><div class="th"><img src="img/5_news.jpg" alt=""></div><div><div class="n">5</div><h3>가족 소식과 축복</h3><p>"오랜만에 정말 이렇게 조카들 자녀들 같이 … 너무 반갑고 감사합니다."</p><span class="len">2분</span></div></div></div>
+  <div class="it" data-src="clips/6_river.mp4"><div class="row"><div class="th"><img src="img/6_river.jpg" alt=""></div><div><div class="n">6</div><h3>소양강</h3><p>점심을 먹고 강가를 걸었다</p><span class="len">1분 28초</span></div></div></div>
+ </div>
+
+ <div class="txt">
+  <p>10월의 마지막 토요일, 일곱 남매와 식구들이 춘천에 모였다. 찬송으로 예배를 열고, 색소폰에 맞춰 다 같이 노래하고, 말씀을 듣고, 지난 석 달의 소식을 나눴다.</p>
+  <p>축복 기도에는 오지 못한 식구들도 담겼다.</p>
+ </div>
+ <div class="q">"이제 함께하지 못한 우리 형제들 주님께 기억해 주시고."</div>
+ <div class="txt"><p>예배가 끝난 뒤에는 소양강 강가 닭갈비집에서 점심을 먹고, 그냥 헤어지기 아쉬워 강변을 걸으며 사진을 찍었다.</p></div>
+
+ <div class="photos">
+  <img class="w" src="img/p04.jpg" alt="">
+  <img src="img/p05.jpg" alt=""><img src="img/p07.jpg" alt="">
+  <img class="w" src="img/p02.jpg" alt="">
+  <img src="img/p08.jpg" alt=""><img src="img/p09.jpg" alt="">
+ </div>
+ <div class="cap">사진을 누르면 크게 보입니다</div>
+
+ <div class="next"><span>다음 가족 예배</span><b>12월 19일</b></div>
+</article>
+
+<div class="foot">석 달에 한 번, 함께 예배를 드리고 함께 밥을 먹는 일곱 남매의 기록입니다. 모임이 있을 때마다 위 줄에 한 칸씩 쌓입니다.</div>
+</div>
+<div class="zoom" id="zoom"><img alt=""></div>
+
+<script>
+function playIn(box, src) {
+  document.querySelectorAll('video').forEach(function (v) { v.pause(); });
+  var v = document.createElement('video');
+  v.src = src; v.controls = true; v.playsInline = true; v.preload = 'auto';
+  box.innerHTML = ''; box.appendChild(v);
+  var p = v.play(); if (p && p.catch) p.catch(function () {});
+  return v;
+}
+// 맨 위 큰 영상
+document.querySelectorAll('.cover').forEach(function (c) {
+  c.onclick = function () { var src = c.getAttribute('data-src'); c.classList.remove('cover'); c.onclick = null; playIn(c, src); };
+});
+// 장면 목록: 누르면 그 줄 아래에 영상이 펼쳐지고 바로 재생, 다시 누르면 닫힘
+document.querySelectorAll('.it').forEach(function (it) {
+  it.querySelector('.row').onclick = function () {
+    var open = it.querySelector('.vid');
+    if (open) { open.remove(); it.classList.remove('open'); return; }
+    document.querySelectorAll('.it .vid').forEach(function (o) { o.parentNode.classList.remove('open'); o.remove(); });
+    var box = document.createElement('div'); box.className = 'vid'; it.appendChild(box); it.classList.add('open');
+    playIn(box, it.getAttribute('data-src'));
+    setTimeout(function () { box.scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 80);
+  };
+});
+// 사진 크게 보기
+var z = document.getElementById('zoom');
+document.querySelectorAll('.photos img').forEach(function (im) { im.onclick = function () { z.querySelector('img').src = im.src; z.classList.add('on'); }; });
+z.onclick = function () { z.classList.remove('on'); };
+</script>
+</body></html>
