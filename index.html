@@ -101,6 +101,9 @@ video{background:#000}
 .row .ds{grid-column:1/-1;margin:2px 0 0;color:#444;font:400 15px/1.7 "Gowun Batang",serif}
 .tobook{display:flex;justify-content:space-between;align-items:center;margin:8px 0 0;padding:12px 14px;border:1.5px solid #222;color:#222;text-decoration:none;font-size:15px;font-weight:700}
 .tobook span{font-size:12.5px;font-weight:400;color:#777}
+
+a.it.lk{display:block;color:inherit;text-decoration:none}
+.th.nop::after{content:"→";background:rgba(0,0,0,.55);font:700 20px/42px "Noto Sans KR",sans-serif;color:#fff;text-align:center}
 </style></head><body>
 <div class="wrap">
 
@@ -117,6 +120,12 @@ video{background:#000}
   <div class="it" data-src="clips/4_word.mp4" data-book="book/#ch-3"><div class="row"><div class="th"><img src="img/4_word.jpg" alt=""></div><div><div class="n">4</div><h3>말씀</h3><p>"여러분이 그렇게 좋아하는 예수님과 열두 제자들 다 유대인입니다."</p><span class="len">2분</span></div><p class="ds">불을 낮춘 방에서 긴 말씀이 이어졌다. 아브라함은 왜 우리의 조상인가, 성경은 누구에게 주어진 책인가 하는 물음에서 시작했다.</p></div></div>
   <div class="it" data-src="clips/5_news.mp4" data-book="book/#ch-4"><div class="row"><div class="th"><img src="img/5_news.jpg" alt=""></div><div><div class="n">5</div><h3>가족 소식과 축복</h3><p>"오랜만에 정말 이렇게 조카들 자녀들 같이 … 너무 반갑고 감사합니다."</p><span class="len">2분</span></div><p class="ds">지난 8월 모임과 9월의 전도 소식을 나누고, 다음 예배를 12월 19일로 알렸다. 마지막은 오랜만에 함께한 조카들과 자녀들에게 건넨 인사였다.</p></div></div>
   <div class="it" data-src="clips/6_river.mp4" data-book="book/#s5-1"><div class="row"><div class="th"><img src="img/6_river.jpg" alt=""></div><div><div class="n">6</div><h3>소양강</h3><p>점심을 먹고 강가를 걸었다</p><span class="len">1분 28초</span></div><p class="ds">강가 닭갈비집에서 점심을 먹고, 그냥 헤어지기 아쉬워 소양강 강변을 걸었다. 볕 좋은 날, 난간 앞에 모두 서서 사진을 찍었다.</p></div></div>
+ </div>
+
+ <h2 class="sec" id="again">예배 다시 보기<span>순서를 누르면 그 부분부터</span></h2>
+ <div class="list">
+  <a class="it lk" href="worship.html"><div class="row"><div class="th nop"><img src="img/2_hymn.jpg" alt=""></div><div><div class="n">예배 전체</div><h3>처음부터 끝까지</h3><p>찬송 · 기도 · 말씀 · 특송 · 소식 · 주기도문</p><span class="len">38분</span></div></div></a>
+  <a class="it lk" href="worship.html#word"><div class="row"><div class="th nop"><img src="img/4_word.jpg" alt=""></div><div><div class="n">말씀</div><h3>말씀 다시 듣기</h3><p>요점 정리와 이날 읽은 성경</p><span class="len">약 15분</span></div></div></a>
  </div>
 
  <div class="txt">
@@ -178,7 +187,7 @@ document.querySelectorAll('.cover').forEach(function (c) {
   c.onclick = function () { var src = c.getAttribute('data-src'); c.classList.remove('cover'); c.onclick = null; playIn(c, src); };
 });
 // 장면 목록: 누르면 그 줄 아래에 영상이 펼쳐지고 바로 재생, 다시 누르면 닫힘
-document.querySelectorAll('.it').forEach(function (it) {
+document.querySelectorAll('.it:not(.lk)').forEach(function (it) {
   it.querySelector('.row').onclick = function () {
     var open = it.querySelector('.vid');
     if (open) { open.remove(); it.classList.remove('open'); return; }

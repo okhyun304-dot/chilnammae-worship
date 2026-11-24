@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>예배 다시 보기 · 일곱 남매의 예배</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#f1f0ec;color:#222;font-family:"Noto Sans KR",sans-serif;-webkit-text-size-adjust:100%}
+video{display:block;width:100%;background:#000;aspect-ratio:16/9}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;text-align:left;cursor:pointer;width:100%}
+.wrap{max-width:520px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 18px rgba(0,0,0,.06)}
+.back{display:block;padding:13px 20px;border-bottom:1px solid #222;color:#a5532c;font-size:15px;font-weight:700;text-decoration:none}
+.hd{padding:22px 20px 16px}
+.hd .k{font-size:12px;font-weight:700;letter-spacing:.25em;color:#a5532c}
+.hd h1{font:700 29px/1.25 "Gowun Batang",serif;margin:8px 0 4px}
+.hd p{margin:0;font-size:14px;color:#777}
+.player{position:sticky;top:0;z-index:5;background:#000}
+.now{position:sticky;top:calc(min(520px,100vw) * 9 / 16);z-index:4;background:#222;color:#eee;font-size:13px;padding:7px 20px}
+.now b{color:#f0b48f;font-weight:700}
+.sec{display:flex;justify-content:space-between;align-items:baseline;margin:26px 14px 0;padding:0 6px 8px;border-bottom:2px solid #222;font:700 20px "Gowun Batang",serif;scroll-margin-top:calc(min(520px,100vw) * 9 / 16 + 40px)}
+.sec span{font:400 12.5px "Noto Sans KR",sans-serif;color:#888}
+.order{list-style:none;margin:0;padding:0 14px}
+.order li{border-bottom:1px solid #eee}
+.order button{display:grid;grid-template-columns:56px 1fr;gap:8px;align-items:baseline;padding:13px 6px}
+.order .tm{font:700 14px "Noto Sans KR",sans-serif;color:#a5532c;font-variant-numeric:tabular-nums}
+.order b{display:block;font-size:16.5px}
+.order em{display:block;font-style:normal;font-size:13px;color:#777;margin-top:1px;line-height:1.5}
+.order li.on{background:#f6efe6}
+.order li.on .tm::before{content:"▶ "}
+.lead{margin:14px 20px 0;font:400 16px/1.85 "Gowun Batang",serif;color:#333}
+.play0{display:block;margin:14px 20px 4px;padding:13px 16px;width:auto;background:#222;color:#fff;font-size:15.5px;font-weight:700;text-align:center}
+.pt{padding:18px 20px 16px;border-bottom:1px solid #eee}
+.pt h3{display:flex;gap:10px;align-items:baseline;margin:0 0 8px;font:700 18px/1.4 "Gowun Batang",serif}
+.pt h3 i{font-style:normal;color:#a5532c;font-size:20px}
+.pt p{margin:0;font:400 16px/1.85 "Gowun Batang",serif;color:#333}
+.pt blockquote{margin:12px 0 0;padding:2px 0 2px 14px;border-left:3px solid #a5532c;font:400 15.5px/1.7 "Gowun Batang",serif;color:#444}
+.pt .go{display:inline-block;width:auto;margin-top:12px;padding:7px 12px;border:1.5px solid #222;font-size:13.5px;font-weight:700}
+.refs{list-style:none;margin:0;padding:0 14px}
+.refs li{border-bottom:1px solid #eee}
+.refs button{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:12px 6px}
+.refs b{font:700 16px "Gowun Batang",serif}
+.refs span{grid-column:1;font-size:13px;color:#777;line-height:1.5}
+.refs s{grid-row:1/3;grid-column:2;align-self:center;text-decoration:none;font-size:13px;font-weight:700;color:#a5532c}
+.note{margin:14px 20px 0;font-size:12.5px;color:#999;line-height:1.7}
+.ft{margin-top:30px;padding:24px 20px 34px;background:#2a2622;color:#bdb5a8;font-size:13px;line-height:1.7}
+.ft b{display:block;color:#f1ece4;font:700 18px "Gowun Batang",serif;margin-bottom:2px}
+.ft p{margin:0 0 14px}
+.ft nav{display:flex;border-top:1px solid #4a443d;padding-top:12px}
+.ft nav a{color:#e6c3a8;text-decoration:none;font-size:13.5px;padding-right:14px;margin-right:14px;border-right:1px solid #4a443d}
+.ft nav a:last-child{border-right:0;margin-right:0}
+</style></head><body>
+<div class="wrap">
+<a class="back" href="./">← 첫 화면으로</a>
+<div class="hd">
+ <div class="k">칠남매 가족 예배</div>
+ <h1>예배 다시 보기</h1>
+ <p>2026년 10월 31일 · 처음부터 끝까지 38분</p>
+</div>
+<div class="player"><video id="v" src="clips/worship_full.mp4" poster="img/2_hymn.jpg" controls playsinline preload="metadata"></video></div>
+<div class="now" id="now">아래 순서를 누르면 그 부분부터 나옵니다</div>
+
+<h2 class="sec" id="order">예배 순서<span>누르면 그 부분부터</span></h2>
+<ol class="order" id="ol">
+<li data-t="0"><button type="button"><span class="tm">0:00</span><span class="nm"><b>찬송 180장</b><em>인도자의 짧은 기도 뒤 다 같이</em></span></button></li>
+<li data-t="144"><button type="button"><span class="tm">2:24</span><span class="nm"><b>신앙고백</b><em>다 같이 사도신경</em></span></button></li>
+<li data-t="197"><button type="button"><span class="tm">3:17</span><span class="nm"><b>찬송 176장</b></span></button></li>
+<li data-t="389"><button type="button"><span class="tm">6:29</span><span class="nm"><b>묵상기도와 대표 기도</b><em>귀한 시간과 자리, 오랜만에 함께한 식구들을 두고 감사</em></span></button></li>
+<li data-t="556"><button type="button"><span class="tm">9:16</span><span class="nm"><b>함께 읽는 말씀</b><em>신명기 32장 9–12절, 시편 148편 14절</em></span></button></li>
+<li data-t="620"><button type="button"><span class="tm">10:20</span><span class="nm"><b>특송</b><em>색소폰 「나 같은 죄인 살리신」, 다 같이 노래</em></span></button></li>
+<li data-t="996"><button type="button"><span class="tm">16:36</span><span class="nm"><b>말씀</b><em>이스라엘, 오늘의 신앙, 다시 오실 날 · 약 15분</em></span></button></li>
+<li data-t="1881"><button type="button"><span class="tm">31:21</span><span class="nm"><b>찬송 179장</b></span></button></li>
+<li data-t="2093"><button type="button"><span class="tm">34:53</span><span class="nm"><b>기도</b><em>함께하지 못한 형제들을 기억하며</em></span></button></li>
+<li data-t="2130"><button type="button"><span class="tm">35:30</span><span class="nm"><b>가족 소식</b><em>지난 모임과 전도 소식, 다음 예배 12월 19일</em></span></button></li>
+<li data-t="2227"><button type="button"><span class="tm">37:07</span><span class="nm"><b>주기도문</b><em>다 같이 외우며 예배를 마침</em></span></button></li>
+</ol>
+
+<h2 class="sec" id="word">말씀<span>약 15분</span></h2>
+<p class="lead">설교는 이스라엘 이야기에서 시작해, 오늘 우리의 신앙과 주님이 다시 오실 날로 이어졌다. 흐름대로 나누면 이렇다.</p>
+<button type="button" class="play0" data-t="996">▶ 말씀 처음부터 듣기</button>
+<section class="pt"><h3><i>1</i>이스라엘의 시조, 아브라함</h3><p>설교자는 성경에 이스라엘이 3천 번 넘게 나온다는 말로 시작했다. 교회에서는 아브라함을 우리 조상이라고 하는데, 피도 말도 역사도 다른데 왜 조상이라 부르는지 늘 마음에 걸렸다고 했다. 그 근거는 갈라디아서 3장, 믿음으로 사는 사람들에게 아브라함이 조상이라는 말씀이라고 했다.</p><blockquote>"여러분이 그렇게 좋아하는 예수님과 열두 제자들 다 유대인입니다."</blockquote><button type="button" class="go" data-t="996">▶ 16:36부터 듣기</button></section>
+<section class="pt"><h3><i>2</i>교회가 이스라엘을 대신했을까</h3><p>이스라엘이 교회로 대체되었다는 생각은 성경을 읽어 보면 맞지 않는다고 했다. 신명기 32장, 시편, 스가랴, 로마서의 구절을 차례로 읽고, 로마서 9장부터 11장까지가 모두 이스라엘의 구원에 대한 이야기라고 짚었다.</p><blockquote>"하나님의 은사와 부르심에는 후회하심이 없느니라."</blockquote><button type="button" class="go" data-t="1116">▶ 18:36부터 듣기</button></section>
+<section class="pt"><h3><i>3</i>예수님의 예언</h3><p>마태복음 23장을 읽었다. 예루살렘이 “찬송하리로다 주의 이름으로 오시는 이여” 할 때까지 다시 보지 못하리라는 말씀이다. 유대인들이 주님을 환영하고 맞아들이기 전에는 아직 그날이 오지 않았다고 했다.</p><button type="button" class="go" data-t="1227">▶ 20:27부터 듣기</button></section>
+<section class="pt"><h3><i>4</i>그냥 교회 다니면 안 된다</h3><p>축복과 은혜와 번영에만 마음이 가 있는 신앙, 교회 안에서만 머무는 신앙을 짚었다. 성령의 권능은 복음을 땅끝까지 전하기 위해 받는 것이고, 주님 오실 날을 앞당기려면 한 사람이라도 더 복음을 전해야 한다고 했다. 재정도 삶도 건강도 다 그것을 위해 준비하는 것이라고 했다.</p><blockquote>"그냥 교회 다니면 안 된단 말이에요."</blockquote><button type="button" class="go" data-t="1291">▶ 21:31부터 듣기</button></section>
+<section class="pt"><h3><i>5</i>흩어져도 지켜 온 사람들</h3><p>요한계시록을 펴서, 마지막을 아는 사탄이 유대인을 핍박해 왔다고 했다. 모세 때의 파라오, 에스더서의 하만, 로마에 의한 멸망까지 역사 속 박해를 짚었다. 그런데도 이천 년을 흩어져 살면서 언어와 역사와 성경과 믿음을 다 지켜 왔다는 것이 놀랍다고 했다.</p><button type="button" class="go" data-t="1432">▶ 23:52부터 듣기</button></section>
+<section class="pt"><h3><i>6</i>다시 오실 날의 두 가지 조건</h3><p>재림의 조건은 두 가지라고 정리했다. 유대인들이 회복되어 예루살렘으로 돌아가는 것, 그리고 이방인의 충만한 수가 차는 것. 예전에는 기도원에서 나와 내 교회를 위해 기도했다면, 지금은 세계 곳곳에서 이스라엘의 회복을 위해 기도하는 사람들이 늘고 있다고 했다.</p><blockquote>"여러분 재림 조건 딱 두 가지밖에 없어요."</blockquote><button type="button" class="go" data-t="1675">▶ 27:55부터 듣기</button></section>
+<section class="pt"><h3><i>7</i>쉽게 다시 정리하면</h3><p>말씀 끝에는 어려운 대목을 쉬운 말로 다시 풀었다. 복음은 이스라엘에서 시작해 온 세상을 한 바퀴 돌았고, 이천 년을 흩어져 살던 사람들이 같은 성경과 말을 지키다 다시 나라를 세웠다. 그러니 이스라엘을 알고 함께 기도하자는 것이었다.</p><button type="button" class="go" data-t="1774">▶ 29:34부터 듣기</button></section>
+
+<h2 class="sec" id="bible">이날 읽은 성경<span>누르면 읽는 부분부터</span></h2>
+<ul class="refs">
+<li><button type="button" data-t="556"><b>신명기 32장 9–12절</b><span>예배 중 다 같이 읽은 말씀</span><s>9:16</s></button></li>
+<li><button type="button" data-t="606"><b>시편 148편 14절</b><span>예배 중 다 같이 읽은 말씀</span><s>10:06</s></button></li>
+<li><button type="button" data-t="1045"><b>갈라디아서 3장</b><span>믿는 사람들에게 아브라함이 조상인 근거</span><s>17:25</s></button></li>
+<li><button type="button" data-t="1144"><b>신명기 32장 9–11절</b><span>설교 중, 하나님의 눈동자 같이 지키신 백성</span><s>19:04</s></button></li>
+<li><button type="button" data-t="1176"><b>시편 33편 11–12절</b><span>설교 중</span><s>19:36</s></button></li>
+<li><button type="button" data-t="1195"><b>스가랴 2장 8절</b><span>설교 중</span><s>19:55</s></button></li>
+<li><button type="button" data-t="1203"><b>로마서 11장 29절</b><span>로마서 9–11장은 이스라엘 이야기</span><s>20:03</s></button></li>
+<li><button type="button" data-t="1229"><b>마태복음 23장 37–39절</b><span>예수님의 예언</span><s>20:29</s></button></li>
+<li><button type="button" data-t="1435"><b>요한계시록 20장 2절 · 12장 12절</b><span>마지막을 아는 사탄</span><s>23:55</s></button></li>
+<li><button type="button" data-t="1628"><b>스가랴 13장</b><span>설교 중 언급</span><s>27:08</s></button></li>
+<li><button type="button" data-t="1646"><b>요한계시록 9장</b><span>설교 중 언급</span><s>27:26</s></button></li>
+</ul>
+<p class="note">성경 본문과 찬송 가사는 싣지 않았습니다. 영상에서 그날 읽고 부른 소리 그대로 들을 수 있습니다. 요점은 녹음을 받아 적어 정리한 것이라 표현이 실제와 조금 다를 수 있습니다.</p>
+
+<footer class="ft">
+ <b>일곱 남매의 예배</b>
+ <p>석 달에 한 번, 함께 예배드리고 함께 밥을 먹는 기록</p>
+ <nav><a href="./">첫 화면</a><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">맨 위로 ↑</a></nav>
+</footer>
+</div>
+<script>
+var v = document.getElementById('v'), now = document.getElementById('now');
+var items = [].slice.call(document.querySelectorAll('#ol li'));
+function seek(t) {
+  function go() { try { v.currentTime = t; } catch (e) {} var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  if (v.readyState >= 1) go(); else { v.addEventListener('loadedmetadata', go, { once: true }); v.load(); }
+}
+document.querySelectorAll('[data-t]').forEach(function (el) {
+  var b = el.tagName === 'LI' ? el.querySelector('button') : el;
+  b.addEventListener('click', function () { seek(+el.getAttribute('data-t')); });
+});
+v.addEventListener('timeupdate', function () {
+  var t = v.currentTime, cur = null;
+  items.forEach(function (li) { if (+li.getAttribute('data-t') <= t + 0.5) cur = li; });
+  items.forEach(function (li) { li.classList.toggle('on', li === cur); });
+  if (cur) now.innerHTML = '지금: <b>' + cur.querySelector('b').textContent + '</b>';
+});
+</script>
+</body></html>
