@@ -18,6 +18,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;te
 .hd h1{font:700 29px/1.25 "Gowun Batang",serif;margin:8px 0 4px}
 .hd p{margin:0;font-size:14px;color:#777}
 .player{position:sticky;top:0;z-index:5;background:#000}
+.now[hidden]{display:none}
 .now{position:sticky;top:calc(min(520px,100vw) * 9 / 16);z-index:4;background:#222;color:#eee;font-size:13px;padding:7px 20px}
 .now b{color:#f0b48f;font-weight:700}
 .sec{display:flex;justify-content:space-between;align-items:baseline;margin:26px 14px 0;padding:0 6px 8px;border-bottom:2px solid #222;font:700 20px "Gowun Batang",serif;scroll-margin-top:calc(min(520px,100vw) * 9 / 16 + 40px)}
@@ -74,10 +75,10 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;te
  <p id="sub">2026년 10월 31일 · 찬송부터 주기도문까지 38분</p>
 </div>
 <div class="player"><video id="v" src="clips/worship_full.mp4" poster="img/5_news.jpg" controls playsinline preload="metadata"></video></div>
-<div class="now" id="now">아래 순서를 누르면 그 부분부터 나옵니다</div>
+<div class="now" id="now" hidden></div>
 
 <div class="view" id="v-all">
-<h2 class="sec">예배 순서<span>누르면 그 부분부터</span></h2>
+<h2 class="sec">예배 순서<span>38분</span></h2>
 <ol class="order" id="ol">
 <li data-t="0"><button type="button"><span class="tm">0:00</span><span class="nm"><b>찬송 180장</b><em>인도자의 짧은 기도 뒤 다 같이</em></span></button></li>
 <li data-t="144"><button type="button"><span class="tm">2:24</span><span class="nm"><b>신앙고백</b><em>다 같이 사도신경</em></span></button></li>
@@ -94,14 +95,13 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;te
 </div>
 
 <div class="view" id="v-hymn" hidden>
-<h2 class="sec">이날 부른 찬송<span>누르면 그 곡부터</span></h2>
+<h2 class="sec">이날 부른 찬송<span>4곡</span></h2>
 <ol class="order hy">
 <li data-t="0"><button type="button"><span class="tm">0:00</span><span class="nm"><b>찬송 180장</b><em>예배를 여는 찬송</em></span></button></li>
 <li data-t="197"><button type="button"><span class="tm">3:17</span><span class="nm"><b>찬송 176장</b><em>사도신경 뒤에 부른 찬송</em></span></button></li>
 <li data-t="620"><button type="button"><span class="tm">10:20</span><span class="nm"><b>특송 「나 같은 죄인 살리신」</b><em>색소폰 연주에 맞춰 다 같이</em></span></button></li>
 <li data-t="1881"><button type="button"><span class="tm">31:21</span><span class="nm"><b>찬송 179장</b><em>말씀 뒤에 부른 찬송</em></span></button></li>
 </ol>
-<p class="note">찬송 가사는 싣지 않았습니다. 영상에서 그날 부른 소리 그대로 들을 수 있습니다.</p>
 </div>
 
 <div class="view" id="v-word" hidden>
@@ -115,7 +115,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;te
 <section class="pt"><h3><i>5</i>흩어져도 지켜 온 사람들</h3><p>요한계시록을 펴서, 마지막을 아는 사탄이 유대인을 핍박해 왔다고 했다. 모세 때의 파라오, 에스더서의 하만, 로마에 의한 멸망까지 역사 속 박해를 짚었다. 그런데도 이천 년을 흩어져 살면서 언어와 역사와 성경과 믿음을 다 지켜 왔다는 것이 놀랍다고 했다.</p><button type="button" class="go" data-t="1432">▶ 23:52부터 듣기</button></section>
 <section class="pt"><h3><i>6</i>다시 오실 날의 두 가지 조건</h3><p>재림의 조건은 두 가지라고 정리했다. 유대인들이 회복되어 예루살렘으로 돌아가는 것, 그리고 이방인의 충만한 수가 차는 것. 예전에는 기도원에서 나와 내 교회를 위해 기도했다면, 지금은 세계 곳곳에서 이스라엘의 회복을 위해 기도하는 사람들이 늘고 있다고 했다.</p><blockquote>"여러분 재림 조건 딱 두 가지밖에 없어요."</blockquote><button type="button" class="go" data-t="1675">▶ 27:55부터 듣기</button></section>
 <section class="pt"><h3><i>7</i>쉽게 다시 정리하면</h3><p>말씀 끝에는 어려운 대목을 쉬운 말로 다시 풀었다. 복음은 이스라엘에서 시작해 온 세상을 한 바퀴 돌았고, 이천 년을 흩어져 살던 사람들이 같은 성경과 말을 지키다 다시 나라를 세웠다. 그러니 이스라엘을 알고 함께 기도하자는 것이었다.</p><button type="button" class="go" data-t="1774">▶ 29:34부터 듣기</button></section>
-<h2 class="sec">이날 읽은 성경<span>누르면 구절이 펼쳐집니다</span></h2>
+<h2 class="sec">이날 읽은 성경<span>11곳</span></h2>
 <ul class="refs">
 <li><details><summary><b>신명기 32장 9–12절</b><span class="rn">예배 중 다 같이 읽은 말씀</span><span class="tm">9:16</span></summary><div class="vt"><p><sup>9</sup>여호와의 분깃은 자기 백성이라 야곱은 그 택하신 기업이로다</p><p><sup>10</sup>여호와께서 그를 황무지에서, 짐승의 부르짖는 광야에서 만나시고 호위하시며 보호하시며 자기 눈동자 같이 지키셨도다</p><p><sup>11</sup>마치 독수리가 그 보금자리를 어지럽게 하며 그 새끼 위에 너풀거리며 그 날개를 펴서 새끼를 받으며 그 날개 위에 그것을 업는 것 같이</p><p><sup>12</sup>여호와께서 홀로 그들을 인도하셨고 함께한 다른 신이 없었도다</p><a class="gae" href="https://www.bskorea.or.kr/bible/korbibReadpage.php?version=GAE&book=deu&chap=32&sec=9" target="_blank" rel="noopener">개역개정으로 보기 ↗</a><button type="button" class="go" data-t="556">▶ 9:16부터 읽는 소리 듣기</button></div></details></li>
 <li><details><summary><b>시편 148편 14절</b><span class="rn">예배 중 다 같이 읽은 말씀</span><span class="tm">10:06</span></summary><div class="vt"><p><sup>14</sup>저가 그 백성의 뿔을 높이셨으니 저는 모든 성도 곧 저를 친근히 하는 이스라엘 자손의 찬양거리로다 할렐루야</p><a class="gae" href="https://www.bskorea.or.kr/bible/korbibReadpage.php?version=GAE&book=psa&chap=148&sec=14" target="_blank" rel="noopener">개역개정으로 보기 ↗</a><button type="button" class="go" data-t="606">▶ 10:06부터 읽는 소리 듣기</button></div></details></li>
@@ -129,7 +129,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;te
 <li><details><summary><b>스가랴 13장</b><span class="rn">설교 중 언급</span><span class="tm">27:08</span></summary><div class="vt"><p><sup>8</sup>여호와가 말하노라 이 온 땅에서 삼분지 이는 멸절하고 삼분지 일은 거기 남으리니</p><p><sup>9</sup>내가 그 삼분지 일을 불 가운데 던져 은 같이 연단하며 금 같이 시험할 것이라 그들이 내 이름을 부르리니 내가 들을 것이며 나는 말하기를 이는 내 백성이라 할 것이요 그들은 말하기를 여호와는 내 하나님이시라 하리라</p><a class="gae" href="https://www.bskorea.or.kr/bible/korbibReadpage.php?version=GAE&book=zec&chap=13&sec=8" target="_blank" rel="noopener">개역개정으로 보기 ↗</a><button type="button" class="go" data-t="1628">▶ 27:08부터 읽는 소리 듣기</button></div></details></li>
 <li><details><summary><b>요한계시록 9장</b><span class="rn">설교 중 언급</span><span class="tm">27:26</span></summary><div class="vt"><p><sup>15</sup>네 천사가 놓였으니 그들은 그 년 월 일 시에 이르러 사람 삼분의 일을 죽이기로 예비한 자들이더라</p><a class="gae" href="https://www.bskorea.or.kr/bible/korbibReadpage.php?version=GAE&book=rev&chap=9&sec=15" target="_blank" rel="noopener">개역개정으로 보기 ↗</a><button type="button" class="go" data-t="1646">▶ 27:26부터 읽는 소리 듣기</button></div></details></li>
 </ul>
-<p class="note">구절은 개역한글판입니다. 그날 읽은 개역개정판과 표현이 조금 다를 수 있어, 「개역개정으로 보기」를 누르면 대한성서공회 성경에서 같은 곳이 열립니다. 요점은 녹음을 받아 적어 정리한 것이라 표현이 실제와 조금 다를 수 있습니다.</p>
+<p class="note">구절은 개역한글판입니다. 그날 읽은 개역개정판과 표현이 조금 다를 수 있습니다.</p>
 </div>
 
 <nav class="others" id="others">
@@ -148,9 +148,9 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;te
 <script>
 var v = document.getElementById('v'), now = document.getElementById('now');
 var VIEWS = {
-  all:  { t: '예배 전체 다시 보기', s: '2026년 10월 31일 · 찬송부터 주기도문까지 38분', p: 'img/5_news.jpg', st: 0, n: '아래 순서를 누르면 그 부분부터 나옵니다' },
-  word: { t: '말씀만 다시 듣기', s: '2026년 10월 31일 · 설교 약 15분 · 요점과 이날 읽은 성경', p: 'img/4_word.jpg', st: 996, n: '재생을 누르면 말씀 처음부터 나옵니다' },
-  hymn: { t: '찬송 다시 듣기', s: '2026년 10월 31일 · 이날 부른 찬송 4곡', p: 'img/2_hymn.jpg', st: 0, n: '아래 곡을 누르면 그 곡부터 나옵니다' }
+  all:  { t: '예배 전체 다시 보기', s: '2026년 10월 31일 · 찬송부터 주기도문까지 38분', p: 'img/5_news.jpg', st: 0, n: '' },
+  word: { t: '말씀만 다시 듣기', s: '2026년 10월 31일 · 설교 약 15분 · 요점과 이날 읽은 성경', p: 'img/4_word.jpg', st: 996, n: '' },
+  hymn: { t: '찬송 다시 듣기', s: '2026년 10월 31일 · 이날 부른 찬송 4곡', p: 'img/2_hymn.jpg', st: 0, n: '' }
 };
 var cur = 'all', moved = false;
 function seek(t) {
@@ -165,7 +165,7 @@ function show(name, scroll) {
   document.querySelectorAll('#others a').forEach(function (a) { a.hidden = a.getAttribute('data-v') === name; });
   document.getElementById('ttl').textContent = c.t; document.getElementById('sub').textContent = c.s;
   document.title = c.t + ' · 일곱 남매의 예배';
-  v.pause(); v.poster = c.p; moved = false; now.textContent = c.n;
+  v.pause(); v.poster = c.p; moved = false; now.hidden = true;
   if (scroll) window.scrollTo(0, 0);
 }
 // 처음 재생을 누르면 그 화면의 시작점부터 (말씀 = 설교 시작)
@@ -182,7 +182,7 @@ v.addEventListener('timeupdate', function () {
   var t = v.currentTime, list = [].slice.call(document.querySelectorAll('.view:not([hidden]) .order li')), on = null;
   list.forEach(function (li) { if (+li.getAttribute('data-t') <= t + 0.5) on = li; });
   marks.forEach(function (li) { li.classList.toggle('on', li === on); });
-  if (on) now.innerHTML = '지금: <b>' + on.querySelector('b').textContent + '</b>';
+  if (on) { now.hidden = false; now.innerHTML = '지금: <b>' + on.querySelector('b').textContent + '</b>'; }
 });
 addEventListener('hashchange', function () { show(location.hash.slice(1), true); });
 show((location.hash || '#all').slice(1), false);
